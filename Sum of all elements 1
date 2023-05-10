@@ -1,0 +1,36 @@
+Need to write a program to sum of all elements
+
+Input Format
+
+6
+1 2 3 4 5 6
+
+Constraints
+
+1<=n<=20
+
+Output Format
+
+21
+
+Sample Input 0
+
+5
+4 3 2 1 5
+Sample Output 0
+
+15
+------------------------------------------------------------------
+#include<stdio.h>
+int main() {
+    int n,i,sum=0;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+        sum=sum+a[i];
+    }
+    printf("%d",sum);
+}
+    
