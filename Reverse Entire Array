@@ -1,0 +1,65 @@
+Need to write a program to reverse the entire Array
+
+Input Format
+
+5
+7 6 5 2 3
+
+Constraints
+
+1<=n<=20
+
+Output Format
+
+3 2 5 6 7
+
+Sample Input 0
+
+6
+4 3 2 7 8 1
+Sample Output 0
+
+1 8 7 2 3 4
+----------------------------------------------------------------------------------------------------------------------------------------
+
+2 Array
+
+#include<stdio.h>
+int main() {
+    int n,i,j;
+    scanf("%d",&n);
+    int a[n],b[n];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    i=0,j=n-1;
+    while(i<n&&j>=0)
+    {
+        b[i]=a[j];
+        j--;
+        i++;
+    }
+    for(i=0;i<n;i++)
+        printf("%d ",b[i]);
+}
+----------------------------------------------------------------------------------------------------------------------------------------
+Single Array
+
+#include<stdio.h>
+int main() {
+    int n,temp,i,j;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    i=0,j=n-1;
+    while(i<j)
+    {
+        temp=a[i];
+        a[i]=a[j];
+        a[j]=temp;
+        j--;
+        i++;
+    }
+    for(i=0;i<n;i++)
+        printf("%d ",a[i]);
+}
