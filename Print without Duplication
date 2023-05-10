@@ -1,0 +1,45 @@
+Given an array of numbers. Print the numbers without duplication.
+
+Input Format
+
+4
+1 1 2 4
+
+Constraints
+
+4<=n<=20
+
+Output Format
+
+1 2 4
+
+Sample Input 0
+
+7
+2 2 6 5 2 6 7
+Sample Output 0
+
+2 6 5 7
+-------------------------------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int n,c=0,i,j;
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            if(a[i]==a[j])
+                c++;
+        }
+        if(c==0)
+            printf("%d",a[i]);
+    }
+}
+    
