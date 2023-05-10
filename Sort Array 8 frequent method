@@ -1,0 +1,70 @@
+Sort the array elements in descending order according to their frequency of occurrence
+
+Input Format
+
+11
+2 2 3 4 5 12 2 3 3 3 12
+
+Constraints
+
+5<=n<=20
+
+Output Format
+
+3 3 3 3 2 2 2 12 12 4 5
+
+Sample Input 0
+
+10
+3 3 2 2 2 5 5 5 8 7
+Sample Output 0
+
+2 2 2 5 5 5 3 3 7 8
+-----------------------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+int maximum(int A[],int n){
+    int max=A[0];
+    for(int i=1;i<n;i++){
+        if(A[i]>max){
+            max=A[i];
+        }
+    }
+    return max;
+}
+void hashing(int A[],int n){
+     int max=maximum(A,n);  //1st
+    int B[max+1];
+    for(int i=0;i<(max+1);i++){
+        B[i]=0;
+    }
+    for(int i=0;i<n;i++){
+        int k=A[i];
+        B[k]++;
+    }
+    int maxB=maximum(B,max+1);
+    while(maxB!=0){
+         for(int i=0;i<(max+1);i++){
+             if(B[i]==maxB){
+                 for(int j=0;j<(maxB);j++){
+                     printf("%d ",i);
+                 }
+             }
+        
+    }
+        maxB--;
+    }
+   
+}
+int main() {
+  int n;
+    scanf("%d",&n);
+    int A[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&A[i]);
+    }
+   hashing(A,n);
+    
+}
