@@ -1,0 +1,59 @@
+Sort the array alternately i.e first element should be max value, second min value,
+third second max, third second min
+
+Input Format
+
+7
+1 2 3 4 5 6 7
+
+Constraints
+
+5<=n<=20
+
+Output Format
+
+7 1 6 2 5 3 4
+
+Sample Input 0
+
+7
+1 2 3 4 5 6 7
+Sample Output 0
+
+7 1 6 2 5 3 4
+-----------------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n,i,j;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    for(i=0;i<n-1;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(a[i]>a[j])
+            {
+                int temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+        }
+    }
+    int l=0,r=n-1;
+    while(l<r)
+    {
+        printf("%d ",a[r]);
+        printf("%d ",a[l]);
+        l++;
+        r--;
+    }
+    if(n%2!=0)
+        printf("%d",a[l]);
+}
