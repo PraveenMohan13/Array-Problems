@@ -1,0 +1,45 @@
+Need to write a program to find out the least element.
+
+Input Format
+
+6
+6 9 3 4 2 7
+
+Constraints
+
+1<=n<=20
+
+Output Format
+
+2
+
+Sample Input 0
+
+7
+3 9 7 6 1 5 2
+Sample Output 0
+
+1
+---------------------------------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include <limits.h>
+int main() {
+  int n,i,ans=INT_MAX;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    
+    for(i=0;i<n;i++)
+    {
+        if(ans>a[i])
+            ans=a[i];
+    }
+    printf("%d",ans);
+}
+ 
