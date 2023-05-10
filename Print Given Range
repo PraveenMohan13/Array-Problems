@@ -1,0 +1,39 @@
+Need to write a program to print the elements between the given range.
+
+Input Format
+
+7
+4 5 3 7 6 9 1
+2 5
+
+Constraints
+
+1<=n<=20
+
+Output Format
+
+3 7 6 9
+
+Sample Input 0
+
+7
+2 3 1 4 9 8 7
+1 4
+Sample Output 0
+
+3 1 4 9
+===================================================================================
+#include<stdio.h>
+int main() {
+    int n,i;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    
+    int key1,key2;
+    scanf("%d %d",&key1,&key2);
+    
+    for(i=key1;i<=key2;i++)
+        printf("%d ",a[i]);
+}
