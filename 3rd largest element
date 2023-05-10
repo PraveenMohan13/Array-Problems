@@ -1,0 +1,52 @@
+Need to write a program to print the 3rd largest element.
+
+Input Format
+
+7
+7 23 45 2 9 56 8
+
+Constraints
+
+1<=n<=20
+
+Output Format
+
+23
+
+Sample Input 0
+
+6
+2 9 8 7 6 1
+Sample Output 0
+
+7
+----------------------------------------------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int n,i,j,temp;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)//input
+        scanf("%d",&a[i]);
+    
+    for(i=0;i<n-1;i++)//sort
+    { 
+        for(j=i+1;j<n;j++)
+        { 
+            if(a[i]>a[j])
+            {
+                temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+        }
+    }
+    
+    printf("%d",a[n-3]);
+    return 0;
+}
