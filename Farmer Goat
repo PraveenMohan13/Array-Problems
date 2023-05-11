@@ -1,0 +1,45 @@
+Raja is a Farmer, Since he is in need of some amount, he wants to sell a goat which is the smallest height among the group of his goats.
+
+Input Format
+
+His goat heights are given:
+5 6 3 2 9 8
+
+Constraints
+
+Goats heights should not be more than 10 units
+
+Output Format
+
+2
+
+Sample Input 0
+
+5
+8 3 4 2 7
+Sample Output 0
+
+2
+========================================================================
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include <limits.h>
+int main() {
+  int n,i,ans=INT_MAX;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    
+    for(i=0;i<n;i++)
+    {
+        if(ans>a[i])
+            ans=a[i];
+    }
+    printf("%d",ans);
+}
+ 
