@@ -1,0 +1,41 @@
+Given two numbers a and b both we have to find the square numbers which lie
+between a and b(inclusive)
+
+Input Format
+
+20
+100
+
+Constraints
+
+20<=a<=200
+20<=b<=200
+
+Output Format
+
+25 36 49 64 81 100
+
+Sample Input 0
+
+30
+90
+Sample Output 0
+
+36 49 64 81
+==================================================================================
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n,m,ans;
+    scanf("%d%d",&n,&m);
+   for(int i=5;i<=14;i++)
+   {
+       ans=i*i;
+       if(ans>=n&&ans<=m)
+           printf("%d ",ans);
+   }
+}
