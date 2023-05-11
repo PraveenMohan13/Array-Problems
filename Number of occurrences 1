@@ -1,0 +1,83 @@
+Given a array with n elements print the number of occurrences of that number each number in that array.
+
+Input Format
+
+9
+2 1 3 2 2 5 8 9 8
+
+Constraints
+
+4<=n<=20
+
+Output Format
+
+1 - 1
+2 - 3
+3 - 1
+5 - 1
+8 - 2
+9 - 1
+
+Sample Input 0
+
+10
+3 5 4 1 4 3 7 6 7 2
+Sample Output 0
+
+1 - 1
+2 - 1
+3 - 2
+4 - 2
+5 - 1
+6 - 1
+7 - 2
+-------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int n,i,j;
+    scanf("%d",&n);
+    int a[n];
+     int vis[n];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    
+    for(i=0;i<n;i++)
+        vis[i]=-1;
+    
+    for(i=0;i<n-1;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(a[i]>a[j])
+            {
+                int temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+        }
+    }
+    
+    for(i=0;i<n;i++)
+    {
+        if(vis[i]==0)
+            continue;
+        
+        int c=1;
+        for(j=i+1;j<n;j++)
+        {
+            if(a[i]==a[j])
+            {
+                vis[j]=0;
+                c++;
+            }
+        }
+        printf("%d - %d\n",a[i],c);
+    }
+}
+    
+    
+    
