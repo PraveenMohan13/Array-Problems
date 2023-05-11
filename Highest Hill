@@ -1,0 +1,44 @@
+Need to write a program to findout the highest hill from the given height of the differnt hills.
+
+Input Format
+
+Hills hights are: 6 9 23 45 24 13
+
+Constraints
+
+Height should not be more than 100
+
+Output Format
+
+45
+
+Sample Input 0
+
+7
+23 45 22 12 56 44 13
+Sample Output 0
+
+56
+==================================================================
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include <limits.h>
+int main() {
+  int n,i,ans=INT_MIN;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    
+    for(i=0;i<n;i++)
+    {
+        if(ans<a[i])
+            ans=a[i];
+    }
+    printf("%d",ans);
+}
+ 
