@@ -2,7 +2,7 @@ Monica wants to buy a keyboard and a USB drive from her favorite electronics sto
 Given the price lists for the store’s keyboards and USB drives, and Monica’s budget, find and print the amount of money Monica will spend. If she doesn’t have enough money to both a keyboard and a USB drive, print -1 instead. She will buy only the two required items.
 For example, suppose she has b=60 to spend. Three keyboards cost, keyboards=[40,50,70]. Three USB drives cost drives=[5,8,12]. She could purchase a 40 keyboards + 12 USB drives =52 or a 50 keyboards + 8 USB drives =58. She chooses the latter. She can’t buy more than 2 items so she can’t spend exactly 60.
 
-Input Format
+Input Format 
 
 3
 3
