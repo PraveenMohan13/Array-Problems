@@ -1,0 +1,63 @@
+Monica wants to buy a keyboard and a USB drive from her favorite electronics store. The store has several models of each. Monica wants to spend as much as possible for the 2 items, given her budget.
+Given the price lists for the store’s keyboards and USB drives, and Monica’s budget, find and print the amount of money Monica will spend. If she doesn’t have enough money to both a keyboard and a USB drive, print -1 instead. She will buy only the two required items.
+For example, suppose she has b=60 to spend. Three keyboards cost, keyboards=[40,50,70]. Three USB drives cost drives=[5,8,12]. She could purchase a 40 keyboards + 12 USB drives =52 or a 50 keyboards + 8 USB drives =58. She chooses the latter. She can’t buy more than 2 items so she can’t spend exactly 60.
+
+Input Format
+
+3
+3
+40 50 70
+5 8 12
+60
+
+Constraints
+
+She should buy 2 items
+
+Output Format
+
+58
+
+Sample Input 0
+
+4
+4
+1 2 3 7
+5 6 7 9
+15
+Sample Output 0
+
+14
+================================================================================
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include <limits.h>
+int main() {
+
+    int n,m,max=INT_MIN,i,j;
+    scanf("%d%d",&n,&m);
+    int a[n];
+    int b[m];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    for(i=0;i<n;i++)
+        scanf("%d",&b[i]);
+    int key;
+    scanf("%d",&key);
+    
+    for(i=0;i<n;i++)
+    { 
+        for(j=0;j<m;j++)
+        {
+            if(a[i]+b[j]>max&&a[i]+b[j]<key)
+                max=a[i]+b[j];
+        }
+    }
+    if(max==INT_MIN)
+        printf("-1");
+    else
+        printf("%d",max);
+    return 0;
+}
