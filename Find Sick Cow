@@ -1,0 +1,47 @@
+Raja is farmer, he has to find the sick cow among the group of cows to treat it. Each cow will have its own identification number which will be in between 1 and 9. Search the cow based on the given identification number, Need to find out the tied position.
+
+Input Format
+
+Raja's cows:
+7
+4 6 2 7 9 5 3
+9
+
+Constraints
+
+Cow's identification number should not be more than 10
+
+Output Format
+
+4
+
+Sample Input 0
+
+5
+7 6 5 4 3
+5
+Sample Output 0
+
+2
+=======================================================================================
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n,i,key;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    scanf("%d",&key);
+    for(i=0;i<n;i++){
+        if(a[i]==key){
+            printf("%d",i);
+            break;
+        }
+    }
+}
+    
