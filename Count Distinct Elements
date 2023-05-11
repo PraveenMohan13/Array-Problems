@@ -1,0 +1,46 @@
+Need to write a program to count the no. of distinct elements
+
+Input Format
+
+12
+1 2 3 4 7 2 3 7 9 8 10 6
+
+Constraints
+
+6<=n<=20
+
+Output Format
+
+6
+
+Sample Input 0
+
+6
+1 2 3 4 2 3
+Sample Output 0
+
+2
+Explanation 0
+
+2 presents 2 times, 3 present 2 times. Here 1 and 4 alone distinct elements. So the count is 2
+=======================================================================================================================
+#include<stdio.h>
+int main(){
+  int n,i,j,c=0,fc=0;
+ scanf("%d",&n);
+ int a[n];
+ for(i=0;i<n;i++)
+   scanf("%d",&a[i]);
+    
+    for(i=0;i<n;i++)
+    { c=0;
+     for(j=0;j<n;j++)
+     {
+         if(a[i]==a[j])
+            c++;
+     }  
+     if(c==1)
+        fc++;
+ }    
+    printf("%d",fc);
+}  
