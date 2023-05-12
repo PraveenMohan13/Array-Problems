@@ -1,0 +1,119 @@
+Find the least non-prime number that can be added with first array element that makes
+them divisible by second array elements at respective index (check for non-prime
+numbers under 1000, if doesn't exist return -1 as answer) & (Consider 1 as prime
+number)
+
+Input Format
+
+2
+2
+20 16
+7 5
+
+Constraints
+
+4<=n<=10
+
+Output Format
+
+8
+4
+
+Sample Input 0
+
+3
+3
+5 4 10
+3 4 7
+Sample Output 0
+
+4
+4
+4
+----------------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+    int is_prime(int n) {
+
+    if (n <= 1) {
+
+        return 0;
+
+    }
+
+    for (int i = 2; i * i <= n; i++) {
+
+        if (n % i == 0) {
+
+            return 0;
+
+        }
+
+    }
+
+    return 1;
+
+}
+
+int find_least_non_prime(int a, int b) {
+
+    int i;
+
+    for (i = 4; i < 1000; i++) {
+
+        if (!is_prime(i) && (a + i) % b == 0) {
+
+            return i;
+
+        }
+
+    }
+
+    return -1;
+
+}
+int main () {
+
+    int n1,n2;
+
+    scanf("%d%d",&n1,&n2);
+
+    int arr1[n1];
+
+    for(int i=0;i<n1;i++){
+
+        scanf("%d",&arr1[i]);
+
+    }
+
+    int arr2[n2];
+
+    for(int i=0;i<n2;i++){
+
+        scanf("%d",&arr2[i]);
+
+    }
+
+    int n = sizeof(arr1) / sizeof(arr1[0]);
+
+    int res[n];
+
+    for (int i = 0; i < n; i++) {
+
+        int ans = find_least_non_prime(arr1[i], arr2[i]);
+
+        res[i] = ans;
+
+    }
+
+    for (int i = 0; i < n; i++) {
+
+        printf("%d\n", res[i]);
+
+    }
+  
+    return 0;
+}
