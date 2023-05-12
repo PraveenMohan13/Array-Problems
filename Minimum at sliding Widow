@@ -1,0 +1,56 @@
+Consider a sliding window of size k equals 2. Let the array be [3,4,2,7,6,8,2,7] the
+output should print 2 as the first output as first window contains {3,4,2} and second
+window contains {4,2,7} and so on
+
+Input Format
+
+7
+5 2 9 7 1 5 9
+3
+
+Constraints
+
+4<=n<=12
+1<=E<=9
+
+Output Format
+
+2 2 1 1 1
+
+Sample Input 0
+
+9
+1 2 3 4 5 6 7 8 9
+3
+Sample Output 0
+
+1 2 3 4 5 6 7
+---------------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include<limits.h>
+
+int main() {
+   int n;
+    scanf("%d", &n);
+    int a[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    int k;
+    scanf("%d", &k);
+    for (int i = 0; i <= n - k; i++) {
+        int min= INT_MAX;
+
+        for (int j = i; j < i + k; j++) {
+            if (a[j] < min) {
+                min= a[j];
+            }
+        }
+        printf("%d ", min);
+    }
+    return 0;
+}
+
