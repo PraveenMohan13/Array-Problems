@@ -1,0 +1,57 @@
+Write a program to rotate the array and print the elements
+
+Input Format
+
+7
+3 6 5 8 7 1 9
+2
+2 4
+
+Constraints
+
+Elements should be less than 10
+
+Output Format
+
+3 6 5
+
+Sample Input 0
+
+5
+1 2 3 4 5
+2
+2 3
+Sample Output 0
+
+1 2
+Explanation 0
+
+After 2 rotation the array becomes 4 5 1 2 3. We need to print the elements from the index of 2 to 3. So the result will be 1 2
+------------------------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int n,i,j,k,sr,er;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    scanf("%d",&k);
+    scanf("%d%d",&sr,&er);
+    int n1=n-k;
+   
+    for(i=n-k;i<n;i++)
+    {
+        for(j=i;j>i-n1;j--)
+        {
+            int temp=a[j];
+            a[j]=a[j-1];
+            a[j-1]=temp;
+        }
+    }
+    for(i=sr;i<=er;i++)
+        printf("%d ",a[i]);
+}
