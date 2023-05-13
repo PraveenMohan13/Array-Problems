@@ -1,0 +1,112 @@
+Write a Program to sort alternatively and print the elements after sum even index's elements.
+
+Input Format
+
+7
+5 2 8 7 4 3 9
+
+Constraints
+
+4<=n<=10
+
+Output Format
+
+9 2 8 3 7 4 5
+9
+
+Sample Input 0
+
+5
+4 2 5 1 3
+Sample Output 0
+
+5 1 4 2 3
+3
+=======================================================================================================================================================================================================
+single array
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n,i,j,sum=0;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    for(i=0;i<n-1;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(a[i]>a[j])
+            {
+                int temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+        }
+    }
+    int l=0,r=n-1;
+    while(l<r)
+    {
+        printf("%d ",a[r]);
+        printf("%d ",a[l]);
+        sum=sum+a[l];
+        l++;
+        r--;
+    }
+    if(n%2!=0)
+        printf("%d ",a[l]);
+    printf("\n%d",sum);
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2 array
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n,i,j,sum=0;
+    scanf("%d",&n);
+    int a[n];
+    int b[n];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    for(i=0;i<n-1;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(a[i]>a[j])
+            {
+                int temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+        }
+    }
+    int l=0,r=n-1,c=0;
+    while(l<r)
+    {
+        b[c++]=a[r];
+        b[c++]=a[l];
+        l++;
+        r--;
+    }
+    if(n%2!=0)
+        b[c]=a[l];
+    
+    for(i=0;i<n;i++)
+        printf("%d ",b[i]);
+    
+    i=1;
+    while(i<n)
+    {
+        sum=sum+b[i];
+        i=i+2;
+    }
+    printf("\n%d",sum);
+}
