@@ -1,0 +1,90 @@
+Write a program to rotate an array elements by kth elements.
+
+Input Format
+
+6
+2 3 4 7 6 1
+2
+
+Constraints
+
+Input should be an array
+
+Output Format
+
+6 1 2 3 4 7
+
+Sample Input 0
+
+5
+5 4 3 2 1
+3
+Sample Output 0
+
+3 2 1 5 4
+----------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n,i,k;
+    scanf("%d",&n);
+    int a[n];
+    
+    for(int i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    scanf("%d",&k);
+    
+    
+    while(k>0)
+    {
+       int t1=a[n-1];
+        for(i=n-2;i>=0;i--)
+        {
+            a[i+1]=a[i];
+        }
+        k--;
+        a[0]=t1;
+    }
+        
+    
+    
+    for(i=0;i<n;i++){
+        printf("%d ",a[i]);
+    }
+ return 0;
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+    void rotation(int a[],int n,int k){
+    int i,j,t;
+    for(j=0;j<k;j++){
+        t=a[n-1];
+        for(i=n-2;i>=0;i--){
+            a[i+1]=a[i];
+        }
+        a[0]=t;
+    }
+}
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int n,i,k;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    } scanf("%d",&k);
+    rotation(a,n,k);
+    for(i=0;i<n;i++){
+        printf("%d ",a[i]);
+    }
+ return 0;
+}
