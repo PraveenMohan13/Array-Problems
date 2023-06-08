@@ -3,6 +3,21 @@ public class Main {
     {
         
         Scanner sc=new Scanner(System.in);
+            Scanner z=new Scanner(System.in);
+        String[] j= z.nextLine().split(" ");
+            for(String i:j)
+        System.out.println(Integer.valueOf(i));
+        }
+}
+----------------------------------------------------------------------------------------------------
+
+
+
+public class Main {
+        public static void main(String[] args) 
+    {
+        
+        Scanner sc=new Scanner(System.in);
         String str=sc.nextLine();
         String [] j=str.split(" ");
             for(String i:j)
