@@ -1,0 +1,88 @@
+
+Replace every element with the smallest element on right side. Given an array of
+integers, replace every element with the next smallest element (smallest element on
+the right side) in the array. Since there is no element next to the last element,
+replace it with -1.
+
+Input Format
+
+6
+16 17 2 3 5 4
+
+Constraints
+
+3<=n<=10
+
+Output Format
+
+2 2 3 4 4 -1
+
+Sample Input 0
+
+7
+1 2 3 4 5 6 7
+Sample Output 0
+
+2 3 4 5 6 7 -1
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 array
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    public static void main(String args[] ) throws Exception {
+        Scanner z=new Scanner(System.in);
+        int n,t=0;
+        n=z.nextInt();
+        int a[]=new int[n];
+        int b[]=new int[n];
+        for(int i=0;i<n;i++)
+            a[i]=z.nextInt();
+        
+        b[n-1]=-1;
+        b[n-2]=a[n-1];
+        
+        for(int i=n-2;i>0;i--)
+        {
+            if(b[i]<a[i])
+                b[i-1]=b[i];
+            else
+                b[i-1]=a[i];
+        }
+        for(int i=0;i<n;i++)
+            System.out.print(b[i]+" ");
+    }
+}
+
+-----------------------------------------------------------------------------------------
+1 array
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    public static void main(String args[] ) throws Exception {
+        Scanner z=new Scanner(System.in);
+        int n,t=0;
+        n=z.nextInt();
+        int a[]=new int[n+1];
+        for(int i=0;i<n;i++)
+            a[i]=z.nextInt();
+        a[n]=-1;
+        for(int i=n-2;i>0;i--)
+        {
+            if(a[i]>a[i+1])
+                a[i]=a[i+1];
+        }
+        for(int i=1;i<=n;i++)
+            System.out.print(a[i]+" ");
+    }
+}
