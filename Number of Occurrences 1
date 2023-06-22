@@ -1,0 +1,71 @@
+Given an array with n elements print the number of occurrences of that number each
+number in that array. The order of number does matter. You cannot reorder the
+elements.
+
+Input Format
+
+9
+2 1 3 2 2 5 8 9 8
+
+Constraints
+
+5<=n<=10
+
+Output Format
+
+2 – 3
+1 – 1
+3 – 1
+5 – 1
+8 – 2
+9 – 1
+
+Sample Input 0
+
+6
+6 7 7 6 3 2
+Sample Output 0
+
+6 - 2
+7 - 2
+3 - 1
+2 - 1
+--------------------------------------------------------------------------------------------------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int fun(int a[],int n,int key)
+{
+    int c=0;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==key)
+        {
+            c++;
+            a[i]=-1;
+        }    
+    }
+    return c;
+}
+
+int main() {
+    int n,i;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    for(i=0;i<n;i++)
+    {
+        if(a[i]!=-1)
+        {
+            printf("%d - ",a[i]);
+            int c=fun(a,n,a[i]);
+            printf("%d\n",c);
+        }
+    }
+    return 0;
+}
