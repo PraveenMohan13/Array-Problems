@@ -1,0 +1,59 @@
+Given an array and a threshold value find the output.
+
+Input Format
+
+6
+5 8 10 13 6 2
+3
+
+Explanation:
+Number parts counts
+5 {3,2} 3
+8 {3,3,2} 4
+10 {3,3,3,1} 4
+13 {3,3,3,3,1} 5
+6 {3,3} 2
+2 {2} 2
+
+Constraints
+
+4<=n<=10
+
+Output Format
+
+20
+
+Sample Input 0
+
+5
+6 5 8 3 9
+2
+Sample Output 0
+
+17
+------------------------------------------------------------------------------------------------------------------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    
+    int n,key,sum=0,i;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    
+    scanf("%d",&key);
+    
+    for(i=0;i<n;i++)
+    {
+       sum+=a[i]/key;
+        sum+=a[i]%key;
+    }
+    printf("%d",sum);
+    return 0;
+}
