@@ -1,0 +1,99 @@
+Given 2 huge numbers as separate digits, store them in array and process them and
+calculate the sum of 2 numbers and store the result in an array and print the sum.
+
+Input Format
+
+12
+9
+9 2 8 1 3 5 6 7 3 1 1 6
+7 8 4 6 2 1 9 9 7
+
+Constraints
+
+4<=n<=15
+
+Output Format
+
+9 2 8 9 2 0 2 9 5 1 1 3
+
+Sample Input 0
+
+6
+5
+3 4 2 6 5 7
+1 2 3 4 5
+Sample Output 0
+
+3 5 5 0 0 2
+
+----------------------------------------------------------------------------------------------------------------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+void rev(int a[],int n)
+{
+    int l=0,r=n-1;
+    while(l<r)
+    {
+        int t=a[l];
+        a[l]=a[r];
+        a[r]=t;
+        l++,r--;
+    }
+}
+
+
+
+int add(int a[],int b[],int ans[] ,int n1,int n2)
+{
+    int carry=0;
+    int size=n1<n2?n2:n1;
+   
+    for(int i=0;i<size;i++)
+    {
+        int t1= i<n1 ? a[i]:0;
+        int t2= i<n2 ? b[i]:0;
+        int t3=t1+t2+carry;
+        
+        carry=t3/10;
+        ans[i]=t3%10;
+    }
+    if(carry>0)
+        ans[size]=carry;
+    return carry;
+}
+
+
+int main() {
+    int n1,n2,i;
+    cin>>n1>>n2;
+    int a[n1],b[n2];
+    for(i=0;i<n1;i++)
+        cin>>a[i];
+    for(i=0;i<n2;i++)
+        cin>>b[i];
+    
+    rev(a,n1);
+    rev(b,n2);
+    
+    
+    int size=n1<n2?n2:n1;
+      int ans[size];
+    int carry=add(a,b,ans,n1,n2);
+    
+   
+    
+    if(carry>0)
+        size++;
+    
+    rev(ans,size);
+    
+    for(i=0;i<size;i++)
+        cout<<ans[i]<<" ";
+    
+    return 0;
+}
