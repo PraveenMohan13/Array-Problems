@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <limits.h>
+
+int sort(int a[],int n)
+{
+    int t,i,j;
+    for(i=0;i<n-1;i++)
+      {
+          for(j=i+1;j<n;j++)
+           {
+               if(a[i]>a[j])
+               {
+                   t=a[i];
+                   a[i]=a[j];
+                   a[j]=t;
+               }
+           }
+      }
+      for(i=0;i<n;i++)
+       printf("%d ",a[i]);
+}
+int merge(int a[],int b[],int n1,int n2)
+{
+ int i,j;
+ int n3=n1+n2;
+ int c[n3];
+ for(i=0;i<n1;i++)
+  c[i]=a[i];
+ for(j=0;j<n2;j++)
+  c[i++]=b[j];
+ sort(c,n3);
+}
+int main()
+{
+  int n1,i;
+    scanf("%d",&n1);
+    int a[n1];
+    for(i=0;i<n1;i++)
+     scanf("%d",&a[i]);
+    int n2;
+    scanf("%d",&n2);
+    int b[n2];
+    for(i=0;i<n2;i++)
+     scanf("%d",&b[i]);
+    merge(a,b,n1,n2);
+
+}
+
+
