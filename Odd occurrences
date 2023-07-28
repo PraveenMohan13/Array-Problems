@@ -1,0 +1,60 @@
+Given an unsorted array that contains even number of occurrences for all numbers except
+two numbers. Find the two numbers which have odd occurrences in O(n) time complexity
+and O(1) extra space.
+
+Input Format
+
+8
+12 23 34 12 12 23 12 45
+
+Constraints
+
+Given input should be an array
+
+Output Format
+
+34 45
+
+Sample Input 0
+
+10
+4 4 100 5000 4 4 4 4 100 100
+Sample Output 0
+
+100 5000
+
+===================================================================================================================================
+#include <stdio.h>
+int find_odd_occurrences(int a[], int n,int key) 
+{
+    int c=0;
+   for(int i=0;i<n;i++)
+   {
+       if(a[i]==key)
+       {
+           c++;
+           a[i]=-1;
+       }
+   }
+ return c;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int a[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==-1)
+            continue;
+        int key=a[i];
+        int c=find_odd_occurrences(a, n,key);
+        if(c%2!=0)
+            printf("%d ",key);
+    }
+    return 0;
+}
