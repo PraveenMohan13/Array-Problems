@@ -1,0 +1,70 @@
+Find the extra element and its index
+
+Input Format
+
+5
+4
+10 20 30 12 5
+10 5 30 20
+
+Constraints
+
+3<=n<=10
+
+Output Format
+
+12
+3
+
+Sample Input 0
+
+4
+5
+-1 0 3 2
+3 4 0 -1 2
+Sample Output 0
+
+4
+1
+============================================================================================================================
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+void fun(int a[],int b[],int n,int m,int key)
+{
+    int i=0,f=0,j=0,ind=-1;
+   while(i<n||j<m)
+   {
+       if(a[i++]==key||b[j++]==key)
+       {
+           f++;
+           ind=i-1;
+       }
+           
+   }
+    if(f==1)
+        printf("%d\n%d",key,ind);
+}
+int main() {
+    int n,m,i;
+    scanf("%d%d",&n,&m);
+    int a[n];
+    int b[m];
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    for(i=0;i<m;i++)
+        scanf("%d",&b[i]);
+    
+    for(i=0;i<n;i++)
+    {
+        fun(a,b,n,m,a[i]);
+    }
+               
+    for(i=0;i<m;i++)
+    {
+        fun(a,b,n,m,b[i]);
+    }             
+    return 0;
+}
