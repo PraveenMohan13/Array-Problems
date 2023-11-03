@@ -20,6 +20,60 @@ Sample Input 0
 Sample Output 0
 
 2 2 2 5 5 5 3 3 7 8
+======================================================================================================================================================
+#include<stdio.h>
+int maximum(int A[],int n){
+    int max=A[0];
+    for(int i=1;i<n;i++){
+        if(A[i]>max){
+            max=A[i];
+        }
+    }
+    return max;
+}
+int minimum(int A[],int n){
+    int min=A[0];
+    for(int i=1;i<n;i++){
+        if(A[i]<min){
+            min=A[i];
+        }
+    }
+    return min;
+}
+void hashing(int A[],int n){
+    int max=maximum(A,n);
+    int min=minimum(A,n);
+    int y=-min;
+    int B[max+1+y];
+    for(int i=0;i<(max+1+y);i++){
+        B[i]=0;
+    }
+    for(int i=0;i<n;i++){
+        int k=A[i];
+        B[k+y]++;
+    }
+    int maxB=maximum(B,max+1+y);
+    while(maxB!=0){
+        for(int i=0;i<(max+1+y);i++){
+            if(B[i]==maxB){
+                for(int j=0;j<maxB;j++){
+                    printf("%d ",i-y);
+                }
+            }
+        }
+        maxB--;
+    }
+}
+int main() {
+    int n;
+    scanf("%d",&n);
+    int A[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&A[i]);
+    }
+    hashing(A,n);
+}
+
 -----------------------------------------------
 #include <stdio.h>
 #include <string.h>
