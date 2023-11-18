@@ -63,3 +63,29 @@ int main() {
     for(i=0;i<n;i++)
         printf("%d ",a[i]);
 }
+============================================================================================================================
+public class Main {
+    static void rev(int a[],int s,int e)
+    {
+        if(s>e)
+            return;
+        int t=a[s];
+        a[s]=a[e];
+        a[e]=t;
+        rev(a,s+1,e-1);
+    }
+    static void dis(int a[],int n)
+    {
+        for(int i=0;i<n;i++)
+            System.out.println(a[i]);
+    }
+    public static void main(String[] args) {
+        Scanner z=new Scanner (System.in);
+        int n=z.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++)
+            a[i]=z.nextInt();
+        rev(a,0,n-1);
+        dis(a,n);
+    }
+}
