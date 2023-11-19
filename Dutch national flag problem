@@ -1,0 +1,55 @@
+
+import java.io.*;
+
+class PM {
+
+	static void fun(String a[], int n)
+	{
+		int lo = 0;
+		int hi = n - 1;
+		int mid = 0;
+        String temp = "";
+	
+		while (mid <= hi) {
+			switch (a[mid]) {
+				
+			case "R" : {
+				temp = a[lo];
+				a[lo] = a[mid];
+				a[mid] = temp;
+				lo++;
+				mid++;
+				break;
+			}
+	
+			case "W":
+				mid++;
+				break;
+				
+			case "B": {
+				temp = a[mid];
+				a[mid] = a[hi];
+				a[hi] = temp;
+				hi--;
+				break;
+			}
+			}
+		}
+	}
+
+	static void print(String a[], int n)
+	{
+		for (int i = 0; i < n; i++)
+			System.out.print(a[i] + " ");
+	}
+
+	public static void main(String[] args)
+	{
+        Scanner z=new Scanner(System.in);
+        String[] s=z.nextLine().split(" ");
+        int n=s.length;
+       // System.out.print(s);
+		fun(s,n);
+		print(s,n);
+	}
+}
