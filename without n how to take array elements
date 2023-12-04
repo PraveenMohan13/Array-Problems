@@ -24,4 +24,14 @@ public class Main {
         System.out.println(Integer.valueOf(i));
         }
 }
-          
+===========================================================
+public class Main {
+        public static void main(String[] args) 
+    {
+        
+        Scanner z=new Scanner(System.in);
+        while(z.hasNextInt());
+            int data=z.nextInt();
+    }
+}
+=====================================================
