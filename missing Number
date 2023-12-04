@@ -32,6 +32,25 @@ Follow up: Could you implement a solution using only O(1) extra space complexity
 class Solution {
     public int missingNumber(int[] nums) {
         int n=nums.length;
+        Arrays.sort(nums);
+        int j;
+        for(int i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                if(i==nums[i])
+                break;
+            }
+            if(j==n)
+            return i;
+        }
+    return n;     
+    }
+}
+==============================================================================================================================================
+class Solution {
+    public int missingNumber(int[] nums) {
+        int n=nums.length;
         int ans=(n*(n+1))/2;
         int sum=0;
         for(int i:nums)
@@ -39,3 +58,20 @@ class Solution {
         return (ans-sum);   
     }
 }
+=====================================================================================
+class Solution {
+    public int missingNumber(int[] nums) {
+        int n=nums.length;
+        Arrays.sort(nums);
+        for(int i=0;i<n;i++)
+        {
+            if(i!=nums[i])
+            {
+                return i;
+                
+            }
+        }
+    return n;     
+    }
+}
+=====================================================================
