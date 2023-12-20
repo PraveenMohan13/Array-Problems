@@ -1,0 +1,56 @@
+Given an array, find the minimum of all the greater numbers for each element in the
+array.
+
+Input Format
+
+7
+2 3 7 -1 8 5 11
+
+Constraints
+
+4<=n<=10
+
+Output Format
+
+2->3, 3->5, 7->8, -1->2, 8->11, 5->7, 11->,
+
+Sample Input 0
+
+6
+5 4 3 7 6 1
+Sample Output 0
+
+5->6, 4->5, 3->4, 7->, 6->7, 1->3,
+
+=====================================================================================================================
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include <limits.h>
+int maxi(int a[],int n,int key)
+{   int min=INT_MAX;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]>key && a[i]<min)
+            min=a[i];
+    }
+ return min;
+}
+int main() {
+    
+    int n;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    for(int i=0;i<n;i++)
+    {
+        int max=maxi(a,n,a[i]);
+        if(max != INT_MAX)
+            printf("%d->%d, ",a[i],max);
+        else
+            printf("%d->, ",a[i]);
+    }
+    return 0;
+}
