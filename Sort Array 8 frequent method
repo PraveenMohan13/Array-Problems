@@ -122,3 +122,155 @@ int main() {
    hashing(A,n);
     
 }
+===============================================================================================================
+public class Solution {
+    public static void main(String args[] ) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        HashMap<Integer,Integer> mp = new HashMap<>();
+        for(int i=0;i<n;i++){
+            int num = sc.nextInt();
+            if(mp.containsKey(num)) mp.put(num,mp.get(num)+1);
+            else mp.put(num,1);
+        }
+        
+        ArrayList<Map.Entry<Integer,Integer>> list = new ArrayList<>(mp.entrySet());
+        
+        Collections.sort(list, new Comparator <Map.Entry<Integer,Integer>>(){
+            
+            public int compare(Map.Entry<Integer,Integer> o1, Map.Entry<Integer,Integer> o2){
+                return o2.getValue().compareTo(o1.getValue());
+            }
+        });
+        
+        HashMap<Integer,Integer> map = new HashMap<>();
+        
+        for(Map.Entry<Integer,Integer> lst : list){
+            map.put(lst.getKey(),lst.getValue());
+            for(int i=0;i<lst.getValue();i++) System.out.print(lst.getKey()+" ");
+        }       
+    }
+}
+=================================================================================================
+class Pair{
+        int val;
+        int count;
+        
+        Pair(int val , int count){
+            this.val = val;
+            this.count = count;
+        }
+    }
+
+public class Solution {
+    
+    public static void main(String args[] ) throws Exception {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        int arr[] = new int[n];
+        
+        for(int i =  0 ; i < n ; i++){
+            arr[i] = sc.nextInt();
+        }
+        
+        Map<Integer , Integer> map = new HashMap<>();
+        
+        for(int i : arr){
+            map.put(i , map.getOrDefault(i,0)+1);
+        }
+        //System.out.println(Arrays.toString(arr));
+        PriorityQueue<Pair> q = new PriorityQueue<>((a,b) -> a.count != b.count ? b.count - a.count : a.val-b.val);
+        
+        for(int i : map.keySet()){
+          //  System.out.println(i + " " + map.get(i));
+            q.add(new Pair(i , map.get(i)));
+        }
+        //System.out.println(q);
+        
+        while(!q.isEmpty()){
+            Pair v = q.poll();
+            for(int i = 0 ; i < v.count ; i++){
+                System.out.print(v.val + " ");
+            }
+        }
+    }
+}
+==========================================================================================================
+public class Solution {
+    public static void main(String args[] ) throws Exception {
+        Scanner s = new Scanner(System.in);
+        
+        int n = s.nextInt();
+        int arr[] = new int[n];
+        
+        Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> res = new ArrayList<>();
+        
+        for(int i=0; i<n; i++){
+            arr[i] = s.nextInt();    
+        }
+        
+        for(int i=0; i<n; i++){
+            if(!map.containsKey(arr[i])){
+               map.put(arr[i], 1); 
+            }
+            else{
+                map.put(arr[i], map.get(arr[i]) + 1);
+            }
+            if(!res.contains(map.get(arr[i]))){
+                res.add(map.get(arr[i]));
+            }
+        }
+        
+        
+        for(int i=res.size()-1; i>=0; i--){
+            int ele = res.get(i);
+            for(Map.Entry<Integer, Integer> k : map.entrySet()){
+                if(k.getValue() == ele){
+                    for(int z=0; z<ele; z++){
+                        System.out.print(k.getKey() + " ");
+                    }
+                }
+            }
+        }    
+    }
+}
+====================================================================================
+int main() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for(int i=0; i<n; i++)
+        cin >> arr[i];
+    map<int, int> freq;
+    for(int i: arr)
+        freq[i]++;
+    int m = freq.size();
+    vector<int> num;
+    for(auto i: freq) {
+        num.push_back(i.first);
+    }
+    for(int i=0; i<m; i++) {
+        for(int j=i+1; j<m; j++) {
+            if(freq[num[i]] < freq[num[j]]) {
+                int temp = num[i];
+                num[i] = num[j];
+                num[j] = temp;
+            } else if(freq[num[i]] == freq[num[j]]) {
+                if(num[i] > num[j]) {
+                    int temp = num[i];
+                    num[i] = num[j];
+                    num[j] = temp;
+                }
+            }
+        }
+    }
+    for(int i: num) {
+        for(int j=0; j<freq[i]; j++)
+            cout << i << " ";
+    }
+    return 0;
+}
