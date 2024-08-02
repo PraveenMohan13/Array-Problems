@@ -1,0 +1,80 @@
+A farmer Praveen has Bullocks in shelter-1 and shelter-2.
+He has some debt needs to pay to bank, so he plans to sell his bullock.
+He sells pairs not as a single Bullock, so that he get more money than selling as a single bullock.
+
+Input Format
+
+Bullocks in shelter-1 and shelter-2.
+Shelter-1: 2 4 1 3 6 5 8 7
+Shelter-2: 4 1 6 4 1 5 6 1 4
+
+Constraints
+
+1<=H<=20
+Here H is the unit height of the bullocks
+
+Output Format
+
+1 - 2
+4 - 2
+5 - 1
+6 - 1
+
+In 4 unit height, he has 2 pairs
+In 1 unit height, he has 1 pairs and so on..
+The result should be in ascending order of height.
+
+Sample Input 0
+
+5
+1 4 3 2 5
+7
+3 4 2 6 8 1 9
+Sample Output 0
+
+1 - 1
+2 - 1
+3 - 1
+4 - 1
+===============================================================================================================
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    static int max(int a[],int n)
+    {
+        int m=Integer.MIN_VALUE;
+        for(int i=0;i<n;i++)
+            if(a[i]>m)
+                m=a[i];
+        return m;
+    }
+
+    public static void main(String[] args) {
+        
+        Scanner z = new Scanner(System.in);
+        int n = z.nextInt();
+        int a[] = new int[n];
+        for(int i=0;i<n;i++)
+            a[i] = z.nextInt();
+        int m = z.nextInt();
+        int b[] = new int[m];
+        for(int i=0;i<m;i++)
+            b[i] = z.nextInt();
+        int mx1 = max(a,n);
+        int mx2 = max(b,m);
+        int mx = Math.max(mx1,mx2);
+        int f[]=new int[mx+1];
+        for(int i=0;i<n;i++)
+            f[a[i]]++;
+        for(int i=0;i<m;i++)
+            f[b[i]]++;
+        for(int i=0;i<mx+1;i++)
+        {
+            if(f[i]>1)
+            {
+               System.out.println(i+" - "+f[i]/2);
+            }
+        }
+    }
+}
